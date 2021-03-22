@@ -1,21 +1,13 @@
-const navCounterValueEl = document.querySelector('#value');
-const navActionEl = document.querySelectorAll('#counter button');
-let counterValue = parseInt(navCounterValueEl.textContent)
+const navInputEl = document.querySelector('#name-input');
+const navSpanEl = document.querySelector('#name-output')
 
-console.log(navActionEl);
+navInputEl.addEventListener('input', onInputChange);
 
-const navDecrementEl = navActionEl[0];
-const navIncrementEl = navActionEl[1];
-
-navIncrementEl.addEventListener('click', onIncrement);
-navDecrementEl.addEventListener('click', onDecrement);
-
-function onIncrement(event) {
-    counterValue += 1;
-    navCounterValueEl.textContent = counterValue;
+function onInputChange(event) {
+    if (!event.currentTarget.value) {
+        navSpanEl.textContent = 'незнакомец';
+    } else {
+        navSpanEl.textContent = event.currentTarget.value;
+    }
 };
 
-function onDecrement(event) {
-    counterValue -= 1;
-    navCounterValueEl.textContent = counterValue;
-};
