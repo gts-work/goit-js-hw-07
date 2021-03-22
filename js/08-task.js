@@ -10,7 +10,7 @@ navInputRenderElValue.addEventListener('click', onClickRender);
 navInputDestroyElValue.addEventListener('click', onClickDestroy);
 
 function onClickRender(event) {
-    navContainer.innerHTML = '';
+    onClickDestroy();
 
     const navNumberEl = navInputNumberEl.value;
     console.log(navNumberEl);
