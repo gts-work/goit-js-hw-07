@@ -1,13 +1,15 @@
-const navInputEl = document.querySelector('#name-input');
-const navSpanEl = document.querySelector('#name-output')
+const refs = {
+    input: document.querySelector('#name-input'),
+    output: document.querySelector('#name-output'),
+}
 
-navInputEl.addEventListener('input', onInputChange);
+refs.input.addEventListener('input', onInputChange);
 
 function onInputChange(event) {
     if (!event.currentTarget.value) {
-        navSpanEl.textContent = 'незнакомец';
+        refs.output.textContent = 'незнакомец';
     } else {
-        navSpanEl.textContent = event.currentTarget.value;
+        refs.output.textContent = event.currentTarget.value;
     }
 };
 
