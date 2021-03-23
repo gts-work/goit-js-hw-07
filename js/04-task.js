@@ -1,21 +1,24 @@
-const navCounterValueEl = document.querySelector('#value');
-const navActionEl = document.querySelectorAll('#counter button');
-let counterValue = parseInt(navCounterValueEl.textContent)
+const refs = {
+    value: document.querySelector('#value'),
+    counter: document.querySelectorAll('#counter button'),
+}
 
-console.log(navActionEl);
+let counterValue = parseInt(refs.value.textContent)
 
-const navDecrementEl = navActionEl[0];
-const navIncrementEl = navActionEl[1];
+console.log(refs.counter);
+
+const navDecrementEl = refs.counter[0];
+const navIncrementEl = refs.counter[1];
 
 navIncrementEl.addEventListener('click', onIncrement);
 navDecrementEl.addEventListener('click', onDecrement);
 
 function onIncrement(event) {
     counterValue += 1;
-    navCounterValueEl.textContent = counterValue;
+    refs.value.textContent = counterValue;
 };
 
 function onDecrement(event) {
     counterValue -= 1;
-    navCounterValueEl.textContent = counterValue;
+    refs.value.textContent = counterValue;
 };
