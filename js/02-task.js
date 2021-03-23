@@ -7,9 +7,12 @@ const ingredients = [
   'Приправы',
 ];
 
-const navIngradientsEl = document.querySelector('#ingredients');
-const listIngradientEl = document.createElement('ul');
-listIngradientEl.classList.add('ingredients');
+const refs = {
+  ingredients: document.querySelector('#ingredients'),
+  ulEl: document.createElement('ul'),
+}
+
+refs.ulEl.classList.add('ingredients');
 
 const element = ingredients.map(item => {
     const navEl = document.createElement('li');
@@ -18,10 +21,10 @@ const element = ingredients.map(item => {
     return navEl;
 });
 
-listIngradientEl.append(...element);
-navIngradientsEl.appendChild(listIngradientEl);
+refs.ulEl.append(...element);
+refs.ingredients.appendChild(refs.ulEl);
 
-console.log(listIngradientEl);
+console.log(refs.ingredients);
 
 
 
