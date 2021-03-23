@@ -1,8 +1,11 @@
-const navInputNumberEl = document.querySelector('#controls input');
-const navControlsEl = document.querySelectorAll('#controls button');
-const navContainer = document.querySelector('#boxes')
-const navInputRenderElValue = navControlsEl[0];
-const navInputDestroyElValue = navControlsEl[1];
+const refs = {
+    input: document.querySelector('#controls input'),
+    button: document.querySelectorAll('#controls button'),
+    boxes: document.querySelector('#boxes'),
+}
+
+const navInputRenderElValue = refs.button[0];
+const navInputDestroyElValue = refs.button[1];
 
 console.log(navInputRenderElValue);
 
@@ -12,7 +15,7 @@ navInputDestroyElValue.addEventListener('click', onClickDestroy);
 function onClickRender(event) {
     onClickDestroy();
 
-    const navNumberEl = navInputNumberEl.value;
+    const navNumberEl = refs.input.value;
     console.log(navNumberEl);
 
     if (navNumberEl) {
@@ -21,12 +24,12 @@ function onClickRender(event) {
 }
 
 function onClickDestroy(event) {
-    navContainer.innerHTML = '';
+    refs.boxes.innerHTML = '';
 }
 
 
 function createBoxes(amount) {
-    navContainer.setAttribute('style', 'display: flex; margin-top: 15px;');
+    refs.boxes.setAttribute('style', 'display: flex; margin-top: 15px;');
     let size = { 'width': 30, 'height': 30 };
     const multiplier = 10;
     const itemList = []
@@ -39,7 +42,7 @@ function createBoxes(amount) {
         size.height += multiplier;
     }
 
-    navContainer.append(...itemList);
+    refs.boxes.append(...itemList);
 }
 
 function createItemDiv(width, height, randomColor) {
