@@ -1,13 +1,15 @@
-const navInputRangeEl = document.querySelector('#font-size-control');
-const navTextEl = document.querySelector('#text');
-const navInputRangeElValue = navInputRangeEl.value;
+const refs = {
+    input: document.querySelector('#font-size-control'),
+    text: document.querySelector('#text'),
+}
+const navInputRangeElValue = refs.input.value;
 
-navTextEl.setAttribute("style", `font-size: ${navInputRangeElValue}px;`);
+refs.text.setAttribute("style", `font-size: ${navInputRangeElValue}px;`);
 
-navInputRangeEl.addEventListener('input', onInput);
+refs.input.addEventListener('input', onInput);
 
 function onInput(event) {
     let currentValue = event.currentTarget.value;
-    navTextEl.setAttribute("style", `font-size: ${currentValue}px;`);
+    refs.text.setAttribute("style", `font-size: ${currentValue}px;`);
 };
 
