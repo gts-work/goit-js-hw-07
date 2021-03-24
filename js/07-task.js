@@ -4,7 +4,7 @@ const refs = {
 }
 const navInputRangeElValue = refs.input.value;
 
-refs.text.setAttribute("style", `font-size: ${navInputRangeElValue}px;`);
+refs.text.style.fontSize = `${navInputRangeElValue}px`;
 
 refs.input.addEventListener('input', onInput);
 
