@@ -35,7 +35,7 @@ function createBoxes(amount) {
     const itemList = []
 
     for (let i = 0; i < amount; i += 1) {
-        const randomColor = '#' + (Math.random().toString(16) + '000000').substring(2, 8).toUpperCase();
+        const randomColor = getRandomColor();
         const itemContainer = createItemDiv(size.width, size.height, randomColor)
         itemList.push(itemContainer)
         size.width += multiplier;
@@ -45,10 +45,15 @@ function createBoxes(amount) {
     refs.boxes.append(...itemList);
 }
 
+function getRandomColor() {
+    return '#' + (Math.random().toString(16) + '000000').substring(2, 8).toUpperCase();
+}
+
 function createItemDiv(width, height, randomColor) {
     const itemContainer = document.createElement('div');
-    const style = `width: ${width}px; height: ${height}px; background-color: ${randomColor}; margin-right: 15px`;
-    itemContainer.setAttribute('style', style);
+    itemContainer.style.width = `${width}px`;
+    itemContainer.style.height = `${height}px`;
+    itemContainer.style.backgroundColor = randomColor;
 
     return itemContainer;
 }

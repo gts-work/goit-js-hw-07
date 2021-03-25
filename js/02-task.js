@@ -9,10 +9,9 @@ const ingredients = [
 
 const refs = {
   ingredients: document.querySelector('#ingredients'),
-  ulEl: document.createElement('ul'),
 }
 
-refs.ulEl.classList.add('ingredients');
+refs.ingredients.classList.add('ingredients');
 
 const element = ingredients.map(item => {
     const navEl = document.createElement('li');
@@ -21,8 +20,7 @@ const element = ingredients.map(item => {
     return navEl;
 });
 
-refs.ulEl.append(...element);
-refs.ingredients.appendChild(refs.ulEl);
+refs.ingredients.append(...element);
 
 console.log(refs.ingredients);
 
